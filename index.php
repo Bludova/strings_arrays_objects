@@ -27,30 +27,28 @@
             ]            
             ];
 
+            $first = [];
+            $second = [];
 foreach ($continents as $continent => $all_animals) {
     foreach ($all_animals as $key => $animals) {
-       $parts = explode(' ', $animals);
-       if(count($parts)=== 2){
-         $comma_separated = implode(",", $parts);
-         $str = str_replace(',', ' ', $comma_separated);
-           $name_two_words[] = $str;
+       $part = explode(' ', $animals);
+       if(count($part) === 2){
+        $first[] = $part[0];
+        $second[] = $part[1];
        }
     }
 
 }
-foreach($name_two_words as $name){
-    $part = explode(' ', $name);
-    $first[] = $part[0];
-    $second[] = $part[1];
-}
-shuffle($second);
 
- $final_result = [];
- 
-for($i = 0; $i < count($name_two_words); $i++){
-    $final_result[]= $first[$i]." ".$second[$i];  
-}
- 
+$name_two_words = [];
+shuffle($second);
+foreach ($second as $key => $value) { 
+} 
+    for($key = 0; $key < count($first); $key++){ 
+        $name_two_words[] = $first[$key].' '.$second[$key]; 
+  
+} 
+
 ?>
 <!DOCTYPE html>
   <html lang="ru">
@@ -61,7 +59,7 @@ for($i = 0; $i < count($name_two_words); $i++){
   <body>
   <?php
     echo '<pre>';
-    var_dump($final_result);
+    var_dump($name_two_words);
     echo '</pre>';
    ?>
   </body>
